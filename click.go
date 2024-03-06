@@ -52,3 +52,29 @@ func NewClickID(
 		AdType: _type,
 	}
 }
+
+// CryptoSSPDomainHash ...
+func (c *ClickID) CryptoSSPDomainHash(s string) *ClickID {
+	c.SSPDomainHash = base64Encode([]byte(s))
+	return c
+}
+
+// PrepareDSPProviderID ...
+func (c *ClickID) PrepareDSPProviderID(v any) *ClickID {
+	res, ok := v.(string)
+	if !ok {
+		return c
+	}
+	c.DSPProviderID = str2Int(res)
+	return c
+}
+
+// PrepareZoneID ...
+func (c *ClickID) PrepareZoneID(v any) *ClickID {
+	res, ok := v.(string)
+	if !ok {
+		return c
+	}
+	c.ZoneID = str2Int(res)
+	return c
+}
