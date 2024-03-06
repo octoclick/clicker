@@ -45,7 +45,6 @@ type ClickID struct {
 // NewClickID ...
 func NewClickID(
 	_type int,
-	passphrase string,
 ) *ClickID {
 	return &ClickID{
 		Uuid:   uuid.NewString(),
