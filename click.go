@@ -1,6 +1,8 @@
 package clicker
 
 import (
+	"math"
+
 	"github.com/google/uuid"
 )
 
@@ -75,5 +77,11 @@ func (c *ClickID) PrepareZoneID(v any) *ClickID {
 		return c
 	}
 	c.ZoneID = str2Int(res)
+	return c
+}
+
+// CalcBid ..
+func (c *ClickID) CalcBid(f float64) *ClickID {
+	c.Bid = int(math.Round(f * 100000000)) //iussik сказал что так по TRUE
 	return c
 }
