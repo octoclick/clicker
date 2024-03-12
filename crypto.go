@@ -3,13 +3,11 @@ package clicker
 import (
 	"crypto/aes"
 	"crypto/cipher"
-	"encoding/json"
 )
 
 // CryptoClick ...
 type CryptoClick struct {
 	passphrase string
-	click      ClickID
 }
 
 var bytes = []byte{35, 46, 57, 24, 85, 35, 24, 74, 87, 35, 88, 98, 66, 32, 14, 05}
@@ -17,11 +15,9 @@ var bytes = []byte{35, 46, 57, 24, 85, 35, 24, 74, 87, 35, 88, 98, 66, 32, 14, 0
 // NewCryptoClick ...
 func NewCryptoClick(
 	passphrase string,
-	click ClickID,
 ) *CryptoClick {
 	return &CryptoClick{
 		passphrase: passphrase,
-		click:      click,
 	}
 }
 
@@ -47,16 +43,4 @@ func (c CryptoClick) Decrypt(data string) (string, error) {
 	plainText := make([]byte, len(cipherText))
 	cfb.XORKeyStream(plainText, cipherText)
 	return string(plainText), nil
-}
-
-func (c CryptoClick) String() string {
-	res, err := json.Marshal(c.click)
-	if err != nil {
-		return ""
-	}
-	value, err := c.Encrypt(res)
-	if err != nil {
-		return ""
-	}
-	return value
 }
