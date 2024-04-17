@@ -42,6 +42,7 @@ type ClickID struct {
 	SSPDomainHash   string `json:"ssp_domain_hash" msgpack:"ssp_domain_hash"`
 	SSPDomainStatus uint   `json:"ssp_domain_status" msgpack:"ssp_domain_status"`
 	AuctionNumber   int    `json:"auction_number" msgpack:"auction_number"`
+	VisitorIPUA     string `json:"visitor_ip_ua" msgpack:"visitor_ip_ua"` //hash from IP + UA
 }
 
 // NewClickID ...
