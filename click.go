@@ -10,7 +10,7 @@ import (
 type ClickID struct {
 	ZoneID          int    `json:"zone_id,omitempty" msgpack:"zone_id"`
 	SiteID          uint64 `json:"site_id,omitempty" msgpack:"site_id"`
-	FingerPrintHash string `json:"fingerprint_hash" msgpack:"fingerprint_hash"`
+	FingerPrintHash string `json:"fingerprint_hash" msgpack:"fingerprint_hash"` //TODO:: remove
 	Uuid            string `json:"uuid" msgpack:"uuid"`
 	WebmasterID     int    `json:"webmaster_id,omitempty" msgpack:"webmaster_id"`
 	CreativeID      int    `json:"creative_id,omitempty" msgpack:"creative_id"`
@@ -42,7 +42,8 @@ type ClickID struct {
 	SSPDomainHash   string `json:"ssp_domain_hash" msgpack:"ssp_domain_hash"`
 	SSPDomainStatus uint   `json:"ssp_domain_status" msgpack:"ssp_domain_status"`
 	AuctionNumber   int    `json:"auction_number" msgpack:"auction_number"`
-	VisitorIPUA     string `json:"visitor_ip_ua" msgpack:"visitor_ip_ua"` //hash from IP + UA
+	VisitorIPUA     string `json:"visitor_ip_ua" msgpack:"visitor_ip_ua"`       //hash from IP + UA,
+	VisitorHardware string `json:"visitor_hardware" msgpack:"visitor_hardware"` //hash from get params + IP
 }
 
 // NewClickID ...
