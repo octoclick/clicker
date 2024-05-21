@@ -100,8 +100,6 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.Seabus = bool(in.Bool())
 		case "ssp_domain_hash":
 			out.SSPDomainHash = string(in.String())
-		case "ssp_domain_status":
-			out.SSPDomainStatus = uint(in.Uint())
 		case "auction_number":
 			out.AuctionNumber = int(in.Int())
 		case "visitor_ip_ua":
@@ -294,11 +292,6 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"ssp_domain_hash\":"
 		out.RawString(prefix)
 		out.String(string(in.SSPDomainHash))
-	}
-	{
-		const prefix string = ",\"ssp_domain_status\":"
-		out.RawString(prefix)
-		out.Uint(uint(in.SSPDomainStatus))
 	}
 	{
 		const prefix string = ",\"auction_number\":"
