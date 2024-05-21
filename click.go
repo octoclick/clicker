@@ -40,7 +40,6 @@ type ClickID struct {
 	BrowserVersion    string `json:"browser_version" msgpack:"browser_version"`
 	Seabus            bool   `json:"seabus" msgpack:"seabus"`
 	SSPDomainHash     string `json:"ssp_domain_hash" msgpack:"ssp_domain_hash"`
-	SSPDomainStatus   uint   `json:"ssp_domain_status" msgpack:"ssp_domain_status"`
 	AuctionNumber     int    `json:"auction_number" msgpack:"auction_number"`
 	VisitorIPUA       string `json:"visitor_ip_ua" msgpack:"visitor_ip_ua"`             //hash from IP + UA,
 	VisitorIPHardware string `json:"visitor_ip_hardware" msgpack:"visitor_ip_hardware"` //hash from get params + IP
