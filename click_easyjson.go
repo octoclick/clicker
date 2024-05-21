@@ -108,6 +108,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.VisitorIPUA = string(in.String())
 		case "visitor_ip_hardware":
 			out.VisitorIPHardware = string(in.String())
+		case "ssp_request_id":
+			out.SSPRequestID = string(in.String())
 		default:
 			in.SkipRecursive()
 		}
@@ -312,6 +314,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"visitor_ip_hardware\":"
 		out.RawString(prefix)
 		out.String(string(in.VisitorIPHardware))
+	}
+	{
+		const prefix string = ",\"ssp_request_id\":"
+		out.RawString(prefix)
+		out.String(string(in.SSPRequestID))
 	}
 	out.RawByte('}')
 }

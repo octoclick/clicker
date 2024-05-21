@@ -44,6 +44,7 @@ type ClickID struct {
 	AuctionNumber     int    `json:"auction_number" msgpack:"auction_number"`
 	VisitorIPUA       string `json:"visitor_ip_ua" msgpack:"visitor_ip_ua"`             //hash from IP + UA,
 	VisitorIPHardware string `json:"visitor_ip_hardware" msgpack:"visitor_ip_hardware"` //hash from get params + IP
+	SSPRequestID      string `json:"ssp_request_id" msgpack:"ssp_request_id"`
 }
 
 // NewClickID ...
