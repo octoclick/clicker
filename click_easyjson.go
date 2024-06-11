@@ -108,6 +108,12 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.VisitorIPHardware = string(in.String())
 		case "ssp_request_id":
 			out.SSPRequestID = string(in.String())
+		case "client_request_id":
+			out.ClientRequestID = string(in.String())
+		case "created_at":
+			if data := in.Raw(); in.Ok() {
+				in.AddError((out.CreatedAt).UnmarshalJSON(data))
+			}
 		default:
 			in.SkipRecursive()
 		}
@@ -312,6 +318,16 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"ssp_request_id\":"
 		out.RawString(prefix)
 		out.String(string(in.SSPRequestID))
+	}
+	{
+		const prefix string = ",\"client_request_id\":"
+		out.RawString(prefix)
+		out.String(string(in.ClientRequestID))
+	}
+	{
+		const prefix string = ",\"created_at\":"
+		out.RawString(prefix)
+		out.Raw((in.CreatedAt).MarshalJSON())
 	}
 	out.RawByte('}')
 }
