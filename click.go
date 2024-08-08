@@ -47,6 +47,7 @@ type ClickID struct {
 	SSPRequestID      string    `json:"ssp_request_id" msgpack:"ssp_request_id"`
 	ClientRequestID   string    `json:"client_request_id" msgpack:"client_request_id"`
 	CreatedAt         time.Time `json:"created_at" msgpack:"-"`
+	LinkID            int       `json:"link_id" msgpack:"-"`
 }
 
 // NewClickID ...
