@@ -114,6 +114,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			if data := in.Raw(); in.Ok() {
 				in.AddError((out.CreatedAt).UnmarshalJSON(data))
 			}
+		case "link_id":
+			out.LinkID = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -328,6 +330,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"created_at\":"
 		out.RawString(prefix)
 		out.Raw((in.CreatedAt).MarshalJSON())
+	}
+	{
+		const prefix string = ",\"link_id\":"
+		out.RawString(prefix)
+		out.Int(int(in.LinkID))
 	}
 	out.RawByte('}')
 }
