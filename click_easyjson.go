@@ -110,6 +110,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.SSPRequestID = string(in.String())
 		case "client_request_id":
 			out.ClientRequestID = string(in.String())
+		case "profile_id":
+			out.ProfileID = string(in.String())
 		case "created_at":
 			if data := in.Raw(); in.Ok() {
 				in.AddError((out.CreatedAt).UnmarshalJSON(data))
@@ -325,6 +327,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"client_request_id\":"
 		out.RawString(prefix)
 		out.String(string(in.ClientRequestID))
+	}
+	{
+		const prefix string = ",\"profile_id\":"
+		out.RawString(prefix)
+		out.String(string(in.ProfileID))
 	}
 	{
 		const prefix string = ",\"created_at\":"
