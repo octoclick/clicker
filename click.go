@@ -46,6 +46,7 @@ type ClickID struct {
 	VisitorIPHardware string    `json:"visitor_ip_hardware" msgpack:"visitor_ip_hardware"` //hash from get params + IP
 	SSPRequestID      string    `json:"ssp_request_id" msgpack:"ssp_request_id"`
 	ClientRequestID   string    `json:"client_request_id" msgpack:"client_request_id"`
+	ProfileID         string    `json:"profile_id" msgpack:"profile_id"`
 	CreatedAt         time.Time `json:"created_at" msgpack:"-"`
 	LinkID            int       `json:"link_id" msgpack:"-"`
 }
