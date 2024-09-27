@@ -118,6 +118,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			}
 		case "link_id":
 			out.LinkID = int(in.Int())
+		case "rtb_site_id":
+			out.RTBSiteID = string(in.String())
 		default:
 			in.SkipRecursive()
 		}
@@ -342,6 +344,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"link_id\":"
 		out.RawString(prefix)
 		out.Int(int(in.LinkID))
+	}
+	{
+		const prefix string = ",\"rtb_site_id\":"
+		out.RawString(prefix)
+		out.String(string(in.RTBSiteID))
 	}
 	out.RawByte('}')
 }
