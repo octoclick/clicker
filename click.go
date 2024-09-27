@@ -49,6 +49,7 @@ type ClickID struct {
 	ProfileID         string    `json:"profile_id" msgpack:"profile_id"`
 	CreatedAt         time.Time `json:"created_at" msgpack:"-"`
 	LinkID            int       `json:"link_id" msgpack:"-"`
+	RTBSiteID         string    `json:"rtb_site_id" msgpack:"-"`
 }
 
 // NewClickID ...
