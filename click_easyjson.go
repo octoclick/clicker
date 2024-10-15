@@ -120,6 +120,14 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.LinkID = int(in.Int())
 		case "rtb_site_id":
 			out.RTBSiteID = string(in.String())
+		case "proxy":
+			out.Proxy = bool(in.Bool())
+		case "hosting":
+			out.Hosting = bool(in.Bool())
+		case "vpn":
+			out.VPN = bool(in.Bool())
+		case "mnc":
+			out.MNC = uint16(in.Uint16())
 		default:
 			in.SkipRecursive()
 		}
@@ -349,6 +357,26 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"rtb_site_id\":"
 		out.RawString(prefix)
 		out.String(string(in.RTBSiteID))
+	}
+	{
+		const prefix string = ",\"proxy\":"
+		out.RawString(prefix)
+		out.Bool(bool(in.Proxy))
+	}
+	{
+		const prefix string = ",\"hosting\":"
+		out.RawString(prefix)
+		out.Bool(bool(in.Hosting))
+	}
+	{
+		const prefix string = ",\"vpn\":"
+		out.RawString(prefix)
+		out.Bool(bool(in.VPN))
+	}
+	{
+		const prefix string = ",\"mnc\":"
+		out.RawString(prefix)
+		out.Uint16(uint16(in.MNC))
 	}
 	out.RawByte('}')
 }
