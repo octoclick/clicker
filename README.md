@@ -4,6 +4,9 @@ click-id generation service
 
 ## Installation
 
+
+
+
 To install, use `go get`:
 
 ```shell
