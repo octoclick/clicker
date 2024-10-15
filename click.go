@@ -50,6 +50,11 @@ type ClickID struct {
 	CreatedAt         time.Time `json:"created_at" msgpack:"-"`
 	LinkID            int       `json:"link_id" msgpack:"-"`
 	RTBSiteID         string    `json:"rtb_site_id" msgpack:"-"`
+	Proxy             bool      `json:"proxy" msgpack:"-"`
+	Tor               bool      `json:"tor" msgpack:"-"`
+	Hosting           bool      `json:"hosting" msgpack:"-"`
+	VPN               bool      `json:"vpn" msgpack:"-"`
+	MNC               uint16    `json:"mnc" msgpack:"-"`
 }
 
 // NewClickID ...
