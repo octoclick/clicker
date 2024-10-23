@@ -126,8 +126,10 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.Hosting = bool(in.Bool())
 		case "vpn":
 			out.VPN = bool(in.Bool())
-		case "mnc":
-			out.MNC = string(in.String())
+		case "mnc_id":
+			out.MncID = string(in.String())
+		case "mnc_name":
+			out.MncName = string(in.String())
 		case "mnc_country":
 			out.MncCountry = string(in.String())
 		default:
@@ -376,9 +378,14 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		out.Bool(bool(in.VPN))
 	}
 	{
-		const prefix string = ",\"mnc\":"
+		const prefix string = ",\"mnc_id\":"
 		out.RawString(prefix)
-		out.String(string(in.MNC))
+		out.String(string(in.MncID))
+	}
+	{
+		const prefix string = ",\"mnc_name\":"
+		out.RawString(prefix)
+		out.String(string(in.MncName))
 	}
 	{
 		const prefix string = ",\"mnc_country\":"
