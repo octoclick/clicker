@@ -53,7 +53,8 @@ type ClickID struct {
 	Proxy             bool      `json:"proxy" msgpack:"-"`
 	Hosting           bool      `json:"hosting" msgpack:"-"`
 	VPN               bool      `json:"vpn" msgpack:"-"`
-	MNC               uint16    `json:"mnc" msgpack:"-"`
+	MNC               string    `json:"mnc" msgpack:"-"`
+	MncCountry        string    `json:"mnc_country" msgpack:"-"`
 }
 
 // NewClickID ...
