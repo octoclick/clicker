@@ -132,6 +132,12 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.MncName = string(in.String())
 		case "mnc_country":
 			out.MncCountry = string(in.String())
+		case "bid_type":
+			out.BidType = int(in.Int())
+		case "bid_cpm":
+			out.BidCPM = int(in.Int())
+		case "bid_cpc":
+			out.BidCPC = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -391,6 +397,21 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"mnc_country\":"
 		out.RawString(prefix)
 		out.String(string(in.MncCountry))
+	}
+	{
+		const prefix string = ",\"bid_type\":"
+		out.RawString(prefix)
+		out.Int(int(in.BidType))
+	}
+	{
+		const prefix string = ",\"bid_cpm\":"
+		out.RawString(prefix)
+		out.Int(int(in.BidCPM))
+	}
+	{
+		const prefix string = ",\"bid_cpc\":"
+		out.RawString(prefix)
+		out.Int(int(in.BidCPC))
 	}
 	out.RawByte('}')
 }
