@@ -56,6 +56,9 @@ type ClickID struct {
 	MncID             string    `json:"mnc_id" msgpack:"-"`
 	MncName           string    `json:"mnc_name" msgpack:"-"`
 	MncCountry        string    `json:"mnc_country" msgpack:"-"`
+	BidType           int       `json:"bid_type" msgpack:"bid_type"`
+	BidCPM            int       `json:"bid_cpm" msgpack:"bid_cpm"`
+	BidCPC            int       `json:"bid_cpc" msgpack:"bid_cpc"`
 }
 
 // NewClickID ...
