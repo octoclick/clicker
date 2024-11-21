@@ -39,6 +39,7 @@ type ClickID struct {
 	Language          string    `json:"language" msgpack:"language"`
 	Browser           string    `json:"browser" msgpack:"browser"`
 	BrowserVersion    string    `json:"browser_version" msgpack:"browser_version"`
+	AsnID             int       `json:"asn_id" msgpack:"-"`
 	Seabus            bool      `json:"seabus" msgpack:"seabus"`
 	SSPDomainHash     string    `json:"ssp_domain_hash" msgpack:"ssp_domain_hash"`
 	AuctionNumber     int       `json:"auction_number" msgpack:"auction_number"`
