@@ -96,6 +96,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.Browser = string(in.String())
 		case "browser_version":
 			out.BrowserVersion = string(in.String())
+		case "asn_id":
+			out.AsnID = int(in.Int())
 		case "seabus":
 			out.Seabus = bool(in.Bool())
 		case "ssp_domain_hash":
@@ -312,6 +314,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"browser_version\":"
 		out.RawString(prefix)
 		out.String(string(in.BrowserVersion))
+	}
+	{
+		const prefix string = ",\"asn_id\":"
+		out.RawString(prefix)
+		out.Int(int(in.AsnID))
 	}
 	{
 		const prefix string = ",\"seabus\":"
