@@ -59,6 +59,7 @@ type ClickID struct {
 	BidType           int       `json:"bid_type" msgpack:"bid_type"`
 	BidCPM            int       `json:"bid_cpm" msgpack:"bid_cpm"`
 	BidCPC            int       `json:"bid_cpc" msgpack:"bid_cpc"`
+	FraudScore        int       `json:"fraud_scope" msgpack:"-"`
 }
 
 // NewClickID ...
