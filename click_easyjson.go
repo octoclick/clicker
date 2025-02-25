@@ -138,6 +138,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.BidCPM = int(in.Int())
 		case "bid_cpc":
 			out.BidCPC = int(in.Int())
+		case "ssp_smart_profit":
+			out.SSPSmartProfit = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -412,6 +414,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"bid_cpc\":"
 		out.RawString(prefix)
 		out.Int(int(in.BidCPC))
+	}
+	{
+		const prefix string = ",\"ssp_smart_profit\":"
+		out.RawString(prefix)
+		out.Int(int(in.SSPSmartProfit))
 	}
 	out.RawByte('}')
 }
