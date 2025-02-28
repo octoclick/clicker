@@ -96,6 +96,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.Browser = string(in.String())
 		case "browser_version":
 			out.BrowserVersion = string(in.String())
+		case "asn_id":
+			out.AsnID = int(in.Int())
 		case "seabus":
 			out.Seabus = bool(in.Bool())
 		case "ssp_domain_hash":
@@ -120,8 +122,6 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.LinkID = int(in.Int())
 		case "rtb_site_id":
 			out.RTBSiteID = string(in.String())
-		case "proxy":
-			out.Proxy = bool(in.Bool())
 		case "hosting":
 			out.Hosting = bool(in.Bool())
 		case "vpn":
@@ -138,8 +138,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.BidCPM = int(in.Int())
 		case "bid_cpc":
 			out.BidCPC = int(in.Int())
-		case "network_profit":
-			out.NetworkProfit = int(in.Int())
+		case "fraud_scope":
+			out.FraudScore = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -316,6 +316,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		out.String(string(in.BrowserVersion))
 	}
 	{
+		const prefix string = ",\"asn_id\":"
+		out.RawString(prefix)
+		out.Int(int(in.AsnID))
+	}
+	{
 		const prefix string = ",\"seabus\":"
 		out.RawString(prefix)
 		out.Bool(bool(in.Seabus))
@@ -371,11 +376,6 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		out.String(string(in.RTBSiteID))
 	}
 	{
-		const prefix string = ",\"proxy\":"
-		out.RawString(prefix)
-		out.Bool(bool(in.Proxy))
-	}
-	{
 		const prefix string = ",\"hosting\":"
 		out.RawString(prefix)
 		out.Bool(bool(in.Hosting))
@@ -416,9 +416,9 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		out.Int(int(in.BidCPC))
 	}
 	{
-		const prefix string = ",\"network_profit\":"
+		const prefix string = ",\"fraud_scope\":"
 		out.RawString(prefix)
-		out.Int(int(in.NetworkProfit))
+		out.Int(int(in.FraudScore))
 	}
 	out.RawByte('}')
 }

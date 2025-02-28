@@ -39,6 +39,7 @@ type ClickID struct {
 	Language          string    `json:"language" msgpack:"language"`
 	Browser           string    `json:"browser" msgpack:"browser"`
 	BrowserVersion    string    `json:"browser_version" msgpack:"browser_version"`
+	AsnID             int       `json:"asn_id" msgpack:"-"`
 	Seabus            bool      `json:"seabus" msgpack:"seabus"`
 	SSPDomainHash     string    `json:"ssp_domain_hash" msgpack:"ssp_domain_hash"`
 	AuctionNumber     int       `json:"auction_number" msgpack:"auction_number"`
@@ -50,7 +51,6 @@ type ClickID struct {
 	CreatedAt         time.Time `json:"created_at" msgpack:"-"`
 	LinkID            int       `json:"link_id" msgpack:"-"`
 	RTBSiteID         string    `json:"rtb_site_id" msgpack:"-"`
-	Proxy             bool      `json:"proxy" msgpack:"-"`
 	Hosting           bool      `json:"hosting" msgpack:"-"`
 	VPN               bool      `json:"vpn" msgpack:"-"`
 	MncID             string    `json:"mnc_id" msgpack:"-"`
@@ -59,6 +59,7 @@ type ClickID struct {
 	BidType           int       `json:"bid_type" msgpack:"bid_type"`
 	BidCPM            int       `json:"bid_cpm" msgpack:"bid_cpm"`
 	BidCPC            int       `json:"bid_cpc" msgpack:"bid_cpc"`
+	FraudScore        int       `json:"fraud_scope" msgpack:"-"`
 	NetworkProfit     int       `json:"network_profit" msgpack:"network_profit"`
 }
 
