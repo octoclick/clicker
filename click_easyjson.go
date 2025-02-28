@@ -140,6 +140,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.BidCPC = int(in.Int())
 		case "fraud_scope":
 			out.FraudScore = int(in.Int())
+		case "network_profit":
+			out.NetworkProfit = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -419,6 +421,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"fraud_scope\":"
 		out.RawString(prefix)
 		out.Int(int(in.FraudScore))
+	}
+	{
+		const prefix string = ",\"network_profit\":"
+		out.RawString(prefix)
+		out.Int(int(in.NetworkProfit))
 	}
 	out.RawByte('}')
 }
