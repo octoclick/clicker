@@ -142,6 +142,29 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.FraudScore = int(in.Int())
 		case "profit_margin":
 			out.ProfitMargin = int(in.Int())
+		case "model_names":
+			if in.IsNull() {
+				in.Skip()
+				out.ModelNames = nil
+			} else {
+				in.Delim('[')
+				if out.ModelNames == nil {
+					if !in.IsDelim(']') {
+						out.ModelNames = make([]string, 0, 4)
+					} else {
+						out.ModelNames = []string{}
+					}
+				} else {
+					out.ModelNames = (out.ModelNames)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v1 string
+					v1 = string(in.String())
+					out.ModelNames = append(out.ModelNames, v1)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
 		case "proxy":
 			out.Proxy = bool(in.Bool())
 		default:
@@ -428,6 +451,22 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"profit_margin\":"
 		out.RawString(prefix)
 		out.Int(int(in.ProfitMargin))
+	}
+	{
+		const prefix string = ",\"model_names\":"
+		out.RawString(prefix)
+		if in.ModelNames == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
+			out.RawString("null")
+		} else {
+			out.RawByte('[')
+			for v2, v3 := range in.ModelNames {
+				if v2 > 0 {
+					out.RawByte(',')
+				}
+				out.String(string(v3))
+			}
+			out.RawByte(']')
+		}
 	}
 	{
 		const prefix string = ",\"proxy\":"
