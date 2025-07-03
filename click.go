@@ -62,7 +62,6 @@ type ClickID struct {
 	FraudScore        int       `json:"fraud_scope" msgpack:"-"`
 	ProfitMargin      int       `json:"profit_margin" msgpack:"profit_margin"`
 	Proxy             bool      `json:"proxy" msgpack:"-"`
-	EventType         int       `json:"event_type" msgpack:"event_type"`
 }
 
 // NewClickID ...
