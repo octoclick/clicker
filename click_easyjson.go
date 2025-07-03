@@ -165,6 +165,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 				}
 				in.Delim(']')
 			}
+		case "proxy":
+			out.Proxy = bool(in.Bool())
 		default:
 			in.SkipRecursive()
 		}
@@ -465,6 +467,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 			}
 			out.RawByte(']')
 		}
+	}
+	{
+		const prefix string = ",\"proxy\":"
+		out.RawString(prefix)
+		out.Bool(bool(in.Proxy))
 	}
 	out.RawByte('}')
 }
