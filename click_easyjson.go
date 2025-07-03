@@ -142,6 +142,10 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.FraudScore = int(in.Int())
 		case "profit_margin":
 			out.ProfitMargin = int(in.Int())
+		case "proxy":
+			out.Proxy = bool(in.Bool())
+		case "event_type":
+			out.EventType = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -426,6 +430,16 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"profit_margin\":"
 		out.RawString(prefix)
 		out.Int(int(in.ProfitMargin))
+	}
+	{
+		const prefix string = ",\"proxy\":"
+		out.RawString(prefix)
+		out.Bool(bool(in.Proxy))
+	}
+	{
+		const prefix string = ",\"event_type\":"
+		out.RawString(prefix)
+		out.Int(int(in.EventType))
 	}
 	out.RawByte('}')
 }
