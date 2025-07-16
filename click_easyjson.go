@@ -165,6 +165,31 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 				}
 				in.Delim(']')
 			}
+		case "proxy":
+			out.Proxy = bool(in.Bool())
+		case "site_tags":
+			if in.IsNull() {
+				in.Skip()
+				out.SiteTags = nil
+			} else {
+				in.Delim('[')
+				if out.SiteTags == nil {
+					if !in.IsDelim(']') {
+						out.SiteTags = make([]int64, 0, 8)
+					} else {
+						out.SiteTags = []int64{}
+					}
+				} else {
+					out.SiteTags = (out.SiteTags)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v2 int64
+					v2 = int64(in.Int64())
+					out.SiteTags = append(out.SiteTags, v2)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
 		default:
 			in.SkipRecursive()
 		}
@@ -457,11 +482,32 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 			out.RawString("null")
 		} else {
 			out.RawByte('[')
-			for v2, v3 := range in.ModelNames {
-				if v2 > 0 {
+			for v3, v4 := range in.ModelNames {
+				if v3 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v3))
+				out.String(string(v4))
+			}
+			out.RawByte(']')
+		}
+	}
+	{
+		const prefix string = ",\"proxy\":"
+		out.RawString(prefix)
+		out.Bool(bool(in.Proxy))
+	}
+	{
+		const prefix string = ",\"site_tags\":"
+		out.RawString(prefix)
+		if in.SiteTags == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
+			out.RawString("null")
+		} else {
+			out.RawByte('[')
+			for v5, v6 := range in.SiteTags {
+				if v5 > 0 {
+					out.RawByte(',')
+				}
+				out.Int64(int64(v6))
 			}
 			out.RawByte(']')
 		}
