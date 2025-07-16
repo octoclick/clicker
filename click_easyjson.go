@@ -175,16 +175,16 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 				in.Delim('[')
 				if out.SiteTags == nil {
 					if !in.IsDelim(']') {
-						out.SiteTags = make([]int64, 0, 8)
+						out.SiteTags = make([]int, 0, 8)
 					} else {
-						out.SiteTags = []int64{}
+						out.SiteTags = []int{}
 					}
 				} else {
 					out.SiteTags = (out.SiteTags)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v2 int64
-					v2 = int64(in.Int64())
+					var v2 int
+					v2 = int(in.Int())
 					out.SiteTags = append(out.SiteTags, v2)
 					in.WantComma()
 				}
@@ -507,7 +507,7 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 				if v5 > 0 {
 					out.RawByte(',')
 				}
-				out.Int64(int64(v6))
+				out.Int(int(v6))
 			}
 			out.RawByte(']')
 		}
