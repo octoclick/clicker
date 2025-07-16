@@ -512,6 +512,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 			out.RawByte(']')
 		}
 	}
+	{
+		const prefix string = ",\"proxy\":"
+		out.RawString(prefix)
+		out.Bool(bool(in.Proxy))
+	}
 	out.RawByte('}')
 }
 
