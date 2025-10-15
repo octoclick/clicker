@@ -190,8 +190,6 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 				}
 				in.Delim(']')
 			}
-		case "cross_domain_profile_id":
-			out.CrossDomainProfileId = string(in.String())
 		default:
 			in.SkipRecursive()
 		}
@@ -513,11 +511,6 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 			}
 			out.RawByte(']')
 		}
-	}
-	{
-		const prefix string = ",\"cross_domain_profile_id\":"
-		out.RawString(prefix)
-		out.String(string(in.CrossDomainProfileId))
 	}
 	out.RawByte('}')
 }
