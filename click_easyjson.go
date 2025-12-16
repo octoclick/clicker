@@ -192,6 +192,10 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			}
 		case "cross_domain_profile_id":
 			out.CrossDomainProfileId = string(in.String())
+		case "res_proxy_last_seen":
+			out.ResProxyLastSeen = string(in.String())
+		case "res_proxy_percent_days_seen":
+			out.ResProxyPercentDaysSeen = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -518,6 +522,16 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"cross_domain_profile_id\":"
 		out.RawString(prefix)
 		out.String(string(in.CrossDomainProfileId))
+	}
+	{
+		const prefix string = ",\"res_proxy_last_seen\":"
+		out.RawString(prefix)
+		out.String(string(in.ResProxyLastSeen))
+	}
+	{
+		const prefix string = ",\"res_proxy_percent_days_seen\":"
+		out.RawString(prefix)
+		out.Int(int(in.ResProxyPercentDaysSeen))
 	}
 	out.RawByte('}')
 }
