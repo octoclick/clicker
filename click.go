@@ -67,6 +67,7 @@ type ClickID struct {
 	CrossDomainProfileId    string    `json:"cross_domain_profile_id" msgpack:"-"`
 	ResProxyLastSeen        string    `json:"res_proxy_last_seen" msgpack:"-"`
 	ResProxyPercentDaysSeen int       `json:"res_proxy_percent_days_seen" msgpack:"-"`
+	Iframe                  int       `json:"iframe" msgpack:"-"`
 }
 
 // NewClickID ...
