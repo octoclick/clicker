@@ -196,6 +196,8 @@ func easyjsonE737ea52DecodeGithubComOctoclickClicker(in *jlexer.Lexer, out *Clic
 			out.ResProxyLastSeen = string(in.String())
 		case "res_proxy_percent_days_seen":
 			out.ResProxyPercentDaysSeen = int(in.Int())
+		case "is_js_bot":
+			out.IsJsBot = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -532,6 +534,11 @@ func easyjsonE737ea52EncodeGithubComOctoclickClicker(out *jwriter.Writer, in Cli
 		const prefix string = ",\"res_proxy_percent_days_seen\":"
 		out.RawString(prefix)
 		out.Int(int(in.ResProxyPercentDaysSeen))
+	}
+	{
+		const prefix string = ",\"is_js_bot\":"
+		out.RawString(prefix)
+		out.Int(int(in.IsJsBot))
 	}
 	out.RawByte('}')
 }
