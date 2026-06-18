@@ -67,6 +67,7 @@ type ClickID struct {
 	CrossDomainProfileId    string    `json:"cross_domain_profile_id" msgpack:"-"`
 	ResProxyLastSeen        string    `json:"res_proxy_last_seen" msgpack:"-"`
 	ResProxyPercentDaysSeen int       `json:"res_proxy_percent_days_seen" msgpack:"-"`
+	isJsBot                 int       //Перменная internal нужна для ogre burl
 }
 
 // NewClickID ...
@@ -110,4 +111,15 @@ func (c *ClickID) PrepareZoneID(v any) *ClickID {
 func (c *ClickID) CalcBid(f float64) *ClickID {
 	c.Bid = int(math.Round(f * 100000000)) //iussik сказал что так по TRUE
 	return c
+}
+
+// SetIsJsBot ..
+func (c *ClickID) SetIsJsBot(f int) *ClickID {
+	c.isJsBot = f
+	return c
+}
+
+// GetIsJsBot ..
+func (c *ClickID) GetIsJsBot() int {
+	return c.isJsBot
 }
