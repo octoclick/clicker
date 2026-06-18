@@ -112,3 +112,14 @@ func (c *ClickID) CalcBid(f float64) *ClickID {
 	c.Bid = int(math.Round(f * 100000000)) //iussik сказал что так по TRUE
 	return c
 }
+
+// SetIsJsBot ..
+func (c *ClickID) SetIsJsBot(f int) *ClickID {
+	c.isJsBot = f
+	return c
+}
+
+// GetIsJsBot ..
+func (c *ClickID) GetIsJsBot() int {
+	return c.isJsBot
+}
