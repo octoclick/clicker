@@ -68,6 +68,7 @@ type ClickID struct {
 	ResProxyLastSeen        string    `json:"res_proxy_last_seen" msgpack:"-"`
 	ResProxyPercentDaysSeen int       `json:"res_proxy_percent_days_seen" msgpack:"-"`
 	isJsBot                 int       //Перменная internal нужна для ogre burl
+	AdvertiserAuctionBid    int       `json:"advertiser_auction_bid" msgpack:"-"` // цена аукциона за один показ — ставка DSP до вычета маржи
 }
 
 // NewClickID ...
@@ -122,4 +123,10 @@ func (c *ClickID) SetIsJsBot(f int) *ClickID {
 // GetIsJsBot ..
 func (c *ClickID) GetIsJsBot() int {
 	return c.isJsBot
+}
+
+// CalcAdvertiserAuctionBid ...
+func (c *ClickID) CalcAdvertiserAuctionBid(f float64) *ClickID {
+	c.AdvertiserAuctionBid = int(math.Round(f * 100000000))
+	return c
 }
